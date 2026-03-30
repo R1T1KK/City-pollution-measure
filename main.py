@@ -165,3 +165,19 @@ def compare_groups(b):
     print(f"Similarity → {similarity}%")
 
 display(btn)
+
+    # Dendrogram
+    combined = np.vstack([g1_mean, g2_mean])
+
+    plt.figure(figsize=(5,4))
+    dendrogram(linkage(combined, method='ward'),
+               labels=["Group 1","Group 2"])
+    plt.title("Dendrogram - Group Comparison")
+    plt.show()
+
+    
+
+# STEP 10: BUTTON
+
+btn = widgets.Button(description="Compare Groups")
+btn.on_click(compare_groups)
